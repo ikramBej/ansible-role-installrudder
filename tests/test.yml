@@ -1,5 +1,4 @@
----
-- hosts: localhost
-  remote_user: root
+- hosts: RudderServer
+
   roles:
     - ansible-role-installrudder
