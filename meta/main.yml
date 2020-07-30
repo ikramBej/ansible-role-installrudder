@@ -8,22 +8,22 @@ galaxy_info:
   
   platforms: 
     - name: Ubuntu
-      version:
+      versions:
         - bionic
         - focal
 
     - name: Debian
-      version:
+      versions:
         - stretch 
         - buster
 
     - name: Fedora
-      version:
+      versions:
          - 7
          - 8
 
     - name: Suse
-      version: 
+      versions: 
          - 12
          - 15
 
