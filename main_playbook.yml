@@ -1,0 +1,5 @@
+---
+- hosts: RudderServer
+
+  roles:
+    - ansible-role-rudder
