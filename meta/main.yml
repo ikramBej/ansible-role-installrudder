@@ -24,14 +24,9 @@ galaxy_info:
         - stretch 
         - buster
 
-    - name: Fedora
+    - name: RedHat
       versions:
          - 7
          - 8
-
-    - name: Suse
-      versions: 
-         - 12
-         - 15
 
 dependencies: []
