@@ -6,31 +6,31 @@ galaxy_info:
   license: MIT
   min_ansible_version: 2.9
   
- platforms: 
-   - name: Ubuntu
-     version:
-       - bionic
-       - focal
+  platforms: 
+    - name: Ubuntu
+      version:
+        - bionic
+        - focal
 
-   - name: Debian
-     version:
-       - stretch 
-       - buster
+    - name: Debian
+      version:
+        - stretch 
+        - buster
 
-   - name: Fedora
-     version:
-        - 7
-        - 8
+    - name: Fedora
+      version:
+         - 7
+         - 8
 
-   - name: Suse
-     version: 
-        - 12
-        - 15
+    - name: Suse
+      version: 
+         - 12
+         - 15
 
-  galaxy_tags:
-  - rudder
-  - automation
-  - compliance
-  - audit
+   galaxy_tags:
+   - rudder
+   - automation
+   - compliance
+   - audit
 
 dependencies: []
