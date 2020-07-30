@@ -11,6 +11,27 @@ galaxy_info:
   - automation
   - compliance
   - audit 
+ 
+ platforms: 
+  - name: Ubuntu
+    version:
+      - bionic
+      - focal
+
+  - name: Debian
+    version:
+      - stretch 
+      - buster
+
+  - name: Fedora
+    version:
+       - 7
+       - 8
+
+  - name: Suse
+    version: 
+       - 12
+       - 15
 
 dependencies: []
 
