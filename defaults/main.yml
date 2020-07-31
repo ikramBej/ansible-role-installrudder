@@ -10,7 +10,7 @@ rudder_rpm_key: "{{ rudder_key_url+'/rpm/rudder_rpm_key.pub' }}"
 
 rudder_rpm_repo: "{{ 'http://'+rudder_repo+'/rpm/'+rudder_version|string+'/RHEL_$releasever/' }}"
 
-rudder_zypper_repo: "{{ 'http://'+rudder_repo+'/rpm/'+rudder_version|string+'/SLES_15/'}}"
+rudder_zypper_repo: "{{ 'http://'+rudder_repo+'/rpm/'+rudder_version|string+'/SLES_15/' }}"
 
 rudder_version: 6.1
 
