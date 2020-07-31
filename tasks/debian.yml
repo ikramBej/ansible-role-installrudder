@@ -27,4 +27,3 @@
       become: true
       register: result
       until: result is successful
-
