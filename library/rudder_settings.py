@@ -14,7 +14,7 @@ module: ruddersettings
 author:
   - Normation
 version_added: '2.9'
-short_description: Configure Rudder settings via APIs call
+short_description: Deploy Rudder Server 6.1
 requirements:
     - "python >= 2.7"
 
@@ -149,7 +149,7 @@ def main():
     ''' module.exit_json(failed=False, changed=True, message=VALUE) '''
 
     if str(VALUE) != value:
-        rudder_iface.Set_SettingValue(name,value)
+        rudder_iface.set_SettingValue(name,value)
         changed = True
         module.exit_json(failed=False, changed=changed, message="changed succefully")
     else:
