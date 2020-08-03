@@ -16,7 +16,7 @@ author:
 version_added: '2.9'
 short_description: Deploy Rudder Server 6.1
 requirements:
-    - "python >= 2.7"
+    - 'python >= 2.7'
 
 options:
 
