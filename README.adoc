@@ -9,7 +9,7 @@ Synposis
 
 1. Installing Rudder Server in its 6.1 release.
 2. Configuring Rudder settings via APIs Calls (Using a developed 'ruddersettings' module).
-3. Configuring Rudder settings via ansible modules for configuration file editing.
+3. Configuring Rudder settings via Ansible modules for configuration file editing.
 
 == Prerequisites
 * In order to use the following scripts you're supposed to have Ansible installed on your machine which is the Ansible manager node.
