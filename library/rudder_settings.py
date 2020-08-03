@@ -1,20 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 #
-# Ansible is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Ansible is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Copyright: (c) 2019, Rémi REY (@rrey)
+# Copyright: (c) 2020, Normation
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
 
 from __future__ import absolute_import, division, print_function
 
@@ -22,8 +11,12 @@ from __future__ import absolute_import, division, print_function
 DOCUMENTATION = '''
 ---
 module: ruddersettings
-
+author:
+  - Normation
+version_added: '2.9'
 short_description: Configure Rudder settings via APIs call
+requirements:
+    - "python >= 2.7"
 
 options:
 
@@ -36,7 +29,7 @@ options:
   rudder_token:
     description:
       - Providing Rudder server token.
-    required: true
+    required: false
     type: str
 
   name:
@@ -64,7 +57,7 @@ options:
 '''
 - name: Modify Rudder Settings
   rudder_settings:
-      rudder_url: "https://<rudder_server_ip_address>/rudder"
+      rudder_url: "https://localhost/rudder"
       rudder_token: "<rudder_server_token>"
       name: "modified_file_ttl"
       value: "22"
@@ -72,19 +65,16 @@ options:
 '''
 
 import json
-
-from ansible.module_utils.basic import *
 from ansible.module_utils.urls import fetch_url, basic_auth_header
 __metaclass__ = type
+from ansible.module_utils.basic import AnsibleModule
 
-
-class RudderLdapSettigsInterface(object):
+class RudderSettingsInterface(object):
 
     def __init__(self, module):
         self._module = module
         # {{{ Authentication header
         self.headers = {"Content-Type": "application/json"}
-
         if module.params.get('rudder_token', None):
             self.headers = {"X-API-Token": module.params['rudder_token']}
         else:
@@ -92,7 +82,6 @@ class RudderLdapSettigsInterface(object):
                 token = f.read()
             self.headers = {"X-API-Token": token}
         # }}}
-
         self.rudder_url = module.params.get("rudder_url")
         self.validate_certs = module.params.get("validate_certs")
 
@@ -123,7 +112,7 @@ class RudderLdapSettigsInterface(object):
         VALUE = response.get("data")
         return VALUE.get("settings").get(name)
 
-    def Set_SettingValue(self, name, value):
+    def set_SettingValue(self, name, value):
         url ="/api/latest/settings/{name}?value={value}".format(name=name, value=value)
         response = self._send_request(url, headers=self.headers, method="POST")
         return response
@@ -133,8 +122,8 @@ def main():
     module_args = dict(
         name=dict(type='str', required=True),
         value=dict(required=True),
-        rudder_url=dict(type='str', required=False),
-        rudder_token=dict(type='str', required=True),
+        rudder_url=dict(type='str', required=True),
+        rudder_token=dict(type='str', required=False),
         validate_certs=dict(type='bool', default=False),
 
     )
@@ -155,7 +144,7 @@ def main():
     value = module.params['value']
     validate_certs = module.params['validate_certs']
 
-    rudder_iface = RudderLdapSettigsInterface(module)
+    rudder_iface = RudderSettingsInterface(module)
     VALUE = rudder_iface.get_SettingValue(name)
     ''' module.exit_json(failed=False, changed=True, message=VALUE) '''
 

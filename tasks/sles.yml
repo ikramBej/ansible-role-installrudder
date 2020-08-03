@@ -14,7 +14,7 @@
         state: present
       become: true
 
-    - name: Installing Rudder Root Server
+    - name: Sles | Installing Rudder Root Server
       zypper:
         name: rudder-server-root
         state: present
@@ -22,7 +22,7 @@
       register: result
       until: result is successful
 
-    - name: Installing Rudder Agent
+    - name: Sles | Installing Rudder Agent
       zypper:
         name: rudder-agent
         state: present
