@@ -28,7 +28,7 @@ Synposis
 
         . *main_playbook.yml*: A playbook for executing the 'ansible-deploy-rudder' role to install Rudder Server latest release 6.1 and configure a few settings, either on Debian, RedHat or Suse distribution. 
 
-        . *library*: This directory contains a module named 'ruddersettings' which will be used in one of Rudder configuration tasks, this module allows setting up some parameters using Rudder APIs calls.
+        . *library*: This directory contains a module named 'rudder_settings' which will be used in one of Rudder configuration tasks, this module allows setting up some parameters using Rudder APIs calls.
 
         . *tasks*: This directory includes tasks for installing and configuring Rudder.
 
