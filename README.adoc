@@ -32,7 +32,7 @@ Synposis
 
         . *tasks*: This directory includes tasks for installing and configuring Rudder.
 
-        . *vars*: Contains variables used in Rudder installation tasks.
+        . *defaults*: Contains variables used in Rudder installation tasks.
 
         . *meta* Contains metadata used to deploy the role in Ansible Galaxy.
 
