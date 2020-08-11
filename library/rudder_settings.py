@@ -14,7 +14,7 @@ module: ruddersettings
 author:
   - Normation
 version_added: '2.9'
-short_description: Deploy Rudder Server 6.1
+short_description: Configure Rudder Server 6.1 parameters via APIs
 requirements:
     - 'python >= 2.7'
 

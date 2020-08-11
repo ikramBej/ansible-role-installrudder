@@ -4,7 +4,7 @@ galaxy_info:
   author: Rudder
   description: Ansible role to install Rudder Server
   company: Rudder
-  license: MIT
+  license: GPLv3
   min_ansible_version: 2.9
   
   galaxy_tags:

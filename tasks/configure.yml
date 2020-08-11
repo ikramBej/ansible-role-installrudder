@@ -1,5 +1,6 @@
 ---
 # tasks for configuring Rudder
+# link for parameters' APIs documentation: https://docs.rudder.io/api/
 
    - name: Configure Rudder Settings for modified_file_ttl
      rudder_settings:
